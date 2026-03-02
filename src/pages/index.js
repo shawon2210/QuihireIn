@@ -111,6 +111,273 @@ export default function Home() {
             />
           </div>
 
+          {/* Explore by Category Section */}
+          <section className="py-16 bg-white border-b border-gray-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-900">
+                  Explore by <span className="text-blue-600">category</span>
+                </h2>
+                <a href="#" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2">
+                  Show all jobs <span>→</span>
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { name: 'Design', icon: '✕', jobs: 235 },
+                  { name: 'Sales', icon: '📊', jobs: 756 },
+                  { name: 'Marketing', icon: '📢', jobs: 140, featured: true },
+                  { name: 'Finance', icon: '💼', jobs: 325 },
+                  { name: 'Technology', icon: '💻', jobs: 436 },
+                  { name: 'Engineering', icon: '</>', jobs: 542 },
+                  { name: 'Business', icon: '💼', jobs: 211 },
+                  { name: 'Human Resource', icon: '👥', jobs: 346 },
+                ].map((category) => (
+                  <div
+                    key={category.name}
+                    className={`p-6 rounded-lg border transition-all cursor-pointer ${
+                      category.featured
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'bg-white border-gray-200 hover:shadow-lg hover:border-gray-300'
+                    }`}
+                  >
+                    <div className={`text-4xl mb-4 ${category.featured ? 'text-white' : 'text-blue-600'}`}>
+                      {category.icon}
+                    </div>
+                    <h3 className={`text-xl font-bold mb-3 ${category.featured ? 'text-white' : 'text-gray-900'}`}>
+                      {category.name}
+                    </h3>
+                    <div className={`flex items-center gap-2 ${category.featured ? 'text-blue-100' : 'text-gray-600'}`}>
+                      <span>{category.jobs} jobs available</span>
+                      <span>→</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Banner Section */}
+          <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 opacity-10">
+              <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="200" r="200" fill="white" />
+              </svg>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Left Content */}
+                <div className="text-white">
+                  <h2 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
+                    Start posting jobs today
+                  </h2>
+                  <p className="text-xl mb-8 text-blue-100">
+                    Start posting jobs for only $10.
+                  </p>
+                  <button className="bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors shadow-lg">
+                    Sign Up For Free
+                  </button>
+                </div>
+
+                {/* Right Content - Dashboard Preview */}
+                <div className="hidden lg:block">
+                  <div className="relative">
+                    {/* Subtle shadow/depth effect */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-xl opacity-20 blur-xl"></div>
+                    
+                    {/* Dashboard mockup card */}
+                    <div className="relative bg-white rounded-xl shadow-2xl p-6 transform hover:scale-105 transition-transform">
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                          <span className="text-sm font-semibold text-gray-700">QuickHire</span>
+                        </div>
+                        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700">
+                          + Post a job
+                        </button>
+                      </div>
+
+                      <div className="text-sm text-gray-600 mb-4">
+                        <span className="font-semibold text-gray-900">Good morning, Maria</span>
+                        <p className="text-xs">Here is your job listings statistics report from...</p>
+                      </div>
+
+                      {/* Stats Cards */}
+                      <div className="grid grid-cols-3 gap-3 mb-6">
+                        <div className="bg-blue-600 text-white p-3 rounded-lg">
+                          <div className="text-2xl font-bold">76</div>
+                          <div className="text-xs">New candidates to review</div>
+                        </div>
+                        <div className="bg-green-400 text-white p-3 rounded-lg">
+                          <div className="text-2xl font-bold">3</div>
+                          <div className="text-xs">Schedule for today</div>
+                        </div>
+                        <div className="bg-cyan-400 text-white p-3 rounded-lg">
+                          <div className="text-2xl font-bold">24</div>
+                          <div className="text-xs">Messages received</div>
+                        </div>
+                      </div>
+
+                      {/* Chart placeholder */}
+                      <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-lg p-4 h-40 flex items-end justify-center gap-2">
+                        {[40, 65, 45, 70, 50, 60, 55, 45].map((height, i) => (
+                          <div
+                            key={i}
+                            className={`flex-1 bg-blue-600 rounded-t opacity-70 hover:opacity-100 transition-opacity`}
+                            style={{ height: `${height}%` }}
+                          ></div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Jobs Section */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center mb-12 pb-6 border-b-2 border-dashed border-gray-300">
+                <h2 className="text-4xl font-bold text-gray-900">
+                  Featured <span className="text-blue-600">jobs</span>
+                </h2>
+                <a href="#" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2">
+                  Show all jobs <span>→</span>
+                </a>
+              </div>
+
+              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    {
+                      icon: 'ℝ',
+                      title: 'Email Marketing',
+                      company: 'Revolut',
+                      location: 'Madrid, Spain',
+                      description: 'Revolut is looking for Email Marketing to help team ma...',
+                      tags: ['Marketing', 'Design'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '◆◆',
+                      title: 'Brand Designer',
+                      company: 'Dropbox',
+                      location: 'San Fransisco, US',
+                      description: 'Dropbox is looking for Brand Designer to help the team t...',
+                      tags: ['Design', 'Business'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '◉',
+                      title: 'Email Marketing',
+                      company: 'Pitch',
+                      location: 'Berlin, Germany',
+                      description: 'Pitch is looking for Customer Manager to join marketing t...',
+                      tags: ['Marketing'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '●',
+                      title: 'Visual Designer',
+                      company: 'Blinklist',
+                      location: 'Granada, Spain',
+                      description: 'Blinklist is looking for Visual Designer to help team desi...',
+                      tags: ['Design'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '∞',
+                      title: 'Product Designer',
+                      company: 'ClassPass',
+                      location: 'Manchester, UK',
+                      description: 'ClassPass is looking for Product Designer to help us...',
+                      tags: ['Marketing', 'Design'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '◉',
+                      title: 'Lead Designer',
+                      company: 'Canva',
+                      location: 'Ontario, Canada',
+                      description: 'Canva is looking for Lead Engineer to help develop n...',
+                      tags: ['Design', 'Business'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '◊',
+                      title: 'Brand Strategist',
+                      company: 'GoDaddy',
+                      location: 'Marseille, France',
+                      description: 'GoDaddy is looking for Brand Strategist to join the team...',
+                      tags: ['Marketing'],
+                      type: 'Full Time'
+                    },
+                    {
+                      icon: '𝕏',
+                      title: 'Data Analyst',
+                      company: 'Twitter',
+                      location: 'San Diego, US',
+                      description: 'Twitter is looking for Data Analyst to help team desi...',
+                      tags: ['Technology'],
+                      type: 'Full Time'
+                    },
+                  ].map((job, index) => (
+                    <div key={index} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                      {/* Header */}
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="text-3xl font-bold text-gray-800 w-12 h-12 flex items-center justify-center bg-gray-100 rounded-lg">
+                          {job.icon}
+                        </div>
+                        <span className="border border-blue-600 text-blue-600 text-xs font-semibold px-3 py-1 rounded">
+                          {job.type}
+                        </span>
+                      </div>
+
+                      {/* Job Title */}
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        {job.title}
+                      </h3>
+
+                      {/* Company and Location */}
+                      <p className="text-gray-600 text-sm mb-3">
+                        <span className="font-semibold">{job.company}</span> • {job.location}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                        {job.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {job.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                              tag === 'Business'
+                                ? 'bg-blue-100 text-blue-600'
+                                : tag === 'Technology'
+                                ? 'bg-red-100 text-red-600'
+                                : tag === 'Design'
+                                ? 'bg-cyan-100 text-cyan-600'
+                                : 'bg-yellow-100 text-yellow-600'
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           {error && (
             <div className="bg-red-100 text-red-700 p-4 rounded-lg mb-6 text-center max-w-7xl mx-auto">{error}</div>
           )}
